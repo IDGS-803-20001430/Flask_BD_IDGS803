@@ -30,3 +30,16 @@ class UsersForm(Form):
     # amaterno=StringField('amaterno')
     # edad=IntegerField('edad')
     # correo=EmailField('correo')
+
+class UsersForm2(Form):
+    id=IntegerField('id')
+
+    nombre=StringField('nombre',[
+        validators.DataRequired(message='el campo es requerido'),
+        validators.length(min=4, max=10, message='ingrese nombre valido')
+    ])
+    apaterno=StringField('apaterno')
+
+    email=StringField('correo',[
+        validators.DataRequired(message='ingresar un correo valido'),
+    ])
